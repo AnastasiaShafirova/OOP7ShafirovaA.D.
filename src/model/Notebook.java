@@ -15,7 +15,7 @@ public class Notebook extends Note{
     private List<Note> notes = new ArrayList<>();
     private DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
 
-    public Notebook(LocalDateTime dateTime, String notesText) {
+    public Notebook() {
         super(notesText, dateTime);
     }
 
