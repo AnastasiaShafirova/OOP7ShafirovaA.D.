@@ -1,15 +1,22 @@
+import model.Note;
+import model.Notebook;
+import presenter.NotebookPresenter;
+import view.ConsoleNotebookView;
+
+import java.time.LocalDateTime;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Notebook notebook = new Notebook();
+        ConsoleNotebookView view = new ConsoleNotebookView();
+        NotebookPresenter notebookPresenter = new NotebookPresenter(notebook, view);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        notebookPresenter.addTextNote("Моя первая запись", LocalDateTime.now());
+        notebookPresenter.addImageNote("Какая-то запись вместе с изображением", LocalDateTime.now(), "image.jpg");
+        notebookPresenter.showAllNotes();
+
+
     }
 }
